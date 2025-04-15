@@ -13,17 +13,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Send JSON Data to https://:SUp2_qOlQgKnUZwCf9xsZA@eu.tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:xeILYDXBRzuAt-Sk8SGmzg/streams/AQAAABhN77AbdE_7iz-hyH8VUUwAAAAA
+      - name: Send JSON Data to First URL
         run: |
           curl -X POST "https://eu.tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:xeILYDXBRzuAt-Sk8SGmzg/streams/AQAAABhN77AbdE_7iz-hyH8VUUwAAAAA" \
             -H "Content-Type: application/json" \
-            -u ":${{ secrets.TANDEM_API_KEY_1 }}" \
             -d @stream.json
 
-      - name: Send JSON Data to https://:oLS0IVyXRD-IUVcQ9QMePQ@eu.tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:xeILYDXBRzuAt-Sk8SGmzg/streams/AQAAABObhka48UD4mM9NTCaJ1UgAAAAA
-        run: |
-          curl -X POST https://:oLS0IVyXRD-IUVcQ9QMePQ@eu.tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:xeILYDXBRzuAt-Sk8SGmzg/streams/AQAAABObhka48UD4mM9NTCaJ1UgAAAAA
+      - name: Send JSON Data to Second URL
+          curl -X POST "https://:oLS0IVyXRD-IUVcQ9QMePQ@eu.tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:xeILYDXBRzuAt-Sk8SGmzg/streams/AQAAABObhka48UD4mM9NTCaJ1UgAAAAA" \
             -H "Content-Type: application/json" \
-            -u ":${{ secrets.TANDEM_API_KEY_2 }}" \
             -d @stream.json
 
